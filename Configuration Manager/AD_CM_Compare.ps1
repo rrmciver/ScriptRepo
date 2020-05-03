@@ -7,7 +7,7 @@ Use: PowerShell.exe -executionpolicy bypass -file "AD_CM_Compare.ps1"
 Notes:
 - This script leverages both the Active Directory and ConfigMgr PowerShell modules.
 - Be sure to run this script on a system with the Configuration Manager administration console and Active Directory RSAT tools installed.
-- A list of active domain joined clients that show as client = No in ConfigMgr will be written to the ADCMCompare.txt file in the temp directory.
+- A list of active domain joined clients that do not exist in the provided ConfigMgr collection will be written to the ADCMCompare.txt file in the user temp directory.
 #>
 
 # Import PS modules
