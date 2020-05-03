@@ -1,6 +1,7 @@
 <#
 AD_CM_Compare.ps1
 Author: Richard McIver
+Last Edit: 5/3/2020
 Description: Compare active computer objects in Active Directory with clients in Configuration Manager to indentify potentiially unmanaged devices.
 Use: PowerShell.exe -executionpolicy bypass -file "AD_CM_Compare.ps1"
 Notes:
