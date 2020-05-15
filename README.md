@@ -1,5 +1,5 @@
 # ScriptRepo
-Welome to my personal script repository, where I share the various scripts and solutions developed over the course of my career as an IT professional.
+Welome to my personal script repository, which contains some of the scripts and solutions developed over the course of my career as an IT professional.
 
 I share these scripts with the community for reference and knowledge sharing only. I do my best to thoroughly document and test all of my scripts before adding them here but, if you choose to download and use any one of them, please note the following disclaimer:
 
