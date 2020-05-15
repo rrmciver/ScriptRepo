@@ -1,0 +1,35 @@
+#EXAMPLES
+#Lines starting with the # character are ignored by the script
+#Users or groups not contained in this file will be removed from the local Administrators group when LocalAdminCleanup.vbs is run
+
+#Local user or group approved on all computers
+local-username
+
+#Domain user or group approved on all computers
+DOMAIN\username
+
+#local user approved on a specific computer
+local-username, ComputerName
+
+#local user approved on computers with a name starting with a specific prefix
+local-username, Prefix*
+
+#local user approved on all computers in a partiuclar OU. 
+#Note: only the immediate container name is currently supported. For example, for computers in DOMAIN\ParentOU\ChildOU, use only ChildOU
+local-username, OUName
+
+#Domain user or group approved on a specific computer
+DOMAIN\Username, ComputerName
+
+#Domain user or group approved on computers with a name starting with a specific prefix
+DOMAIN\Username, PREFIX*
+
+#Domain user or group approved on all computers in a partiuclar OU. 
+#Note: only the immediate container name is currently supported. For example, for computers in DOMAIN\ParentOU\ChildOU, use only ChildOU
+DOMAIN\Username, OUName
+
+#Local user or group approved on all computers with comments
+local-username, ## Per ticket number 123456
+
+#Local user or group approved on a specific computer with comments
+local-username, ComputerName, ## Per ticket number 123456

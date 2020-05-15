@@ -1,0 +1,1 @@
+Get-ChildItem -path "HKLM:\SOFTWARE\Microsoft\SMS\Mobile Client\Software Distribution\Execution History" -Recurse | % { get-itemproperty -path  $_.PsPath }
