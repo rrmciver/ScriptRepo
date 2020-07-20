@@ -1,23 +1,29 @@
 <#
-Author: Richard McIver
-Last Modified: 7/20/2020
-Description: This script is inteded to be used to automate the process of enabling Azure Disk Encryption (ADE) on all unencrypted session hosts in a WVD host pool without impacting users. It is designed to be run as an Auotmation Account runbook.
-Permissions: The RunAs account of your Azure Automation Account must have the Contributor role to either your WVD subscription or the Reosurce Groups containg the WVD host pool and session host virtual machines.
-It must also have at least Read permissions to the Resource Group contianing the desired KeyVault.
+.SYNOPSIS
+    Automate the process to enable Azure Disk Encrpytiong on WVD session hosts
 
-Required Variables:
-AADTenenatId - Azure TenantID
-AzureRunAsName - Run As account connection asset name
-KeyName - Name of the key within the KeyVault to use for disk encryption
-KeyVaultName - Name of the KeyVault containing the desired key
-KeyVaultResourceGroup - Name of the Resource Group containing the KeyVault and Key
-SubscriptionName - Name of the subscription containing the WVD resources
+.DESCRIPTION
+    This script is inteded to be used to automate the process of enabling Azure Disk Encryption (ADE) on all unencrypted session hosts in a WVD host pool without impacting users. It is designed to be run as an Auotmation Account runbook.
+    Permissions:  
+    The RunAs account of your Azure Automation Account must have the Contributor role to either your WVD subscription or the Reosurce Groups containg the WVD host pool and session host virtual machines.
+    It must also have at least Read permissions to the Resource Group contianing the desired KeyVault.
+.NOTES
+    Author: Richard McIver
+    Last Modified: 7/20/2020
 
-Use: When executed, the RunBook will prompt for the following input:
-HOSTPOOLNAME - Name of the host pool containing the session hosts to be encrypted
-ALLOWSTARTVM (True/False) - If an unencrypted session host is stopped, allow the script to start it
-ALLOWNEWSESSIONS (True/False) - If set to True, once ADE has been enabled on the session host the script will re-enable the AllowNewSession flag. If set to False, AllowNewSession will remain disabled until manually re-enabled by an admin.
-OVERRIDEHOSTLIMIT (True/False) - If set to False, the script will ensure at least one session host in the pool remains available to accept user sessions during execution. If set to True, the script will disable AllowNowSession on all session hosts without regard for the number of available hosts in the pool.
+    Required Variables:
+    AADTenenatId - Azure TenantID
+    AzureRunAsName - Run As account connection asset name
+    KeyName - Name of the key within the KeyVault to use for disk encryption
+    KeyVaultName - Name of the KeyVault containing the desired key
+    KeyVaultResourceGroup - Name of the Resource Group containing the KeyVault and Key
+    SubscriptionName - Name of the subscription containing the WVD resources
+
+    Use: When executed, the RunBook will prompt for the following input:
+    HOSTPOOLNAME - Name of the host pool containing the session hosts to be encrypted
+    ALLOWSTARTVM (True/False) - If an unencrypted session host is stopped, allow the script to start it
+    ALLOWNEWSESSIONS (True/False) - If set to True, once ADE has been enabled on the session host the script will re-enable the AllowNewSession flag. If set to False, AllowNewSession will remain disabled until manually re-enabled by an admin.
+    OVERRIDEHOSTLIMIT (True/False) - If set to False, the script will ensure at least one session host in the pool remains available to accept user sessions during execution. If set to True, the script will disable AllowNowSession on all session hosts without regard for the number of available hosts in the pool.
 #>
 
 param(
