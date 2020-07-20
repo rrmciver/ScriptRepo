@@ -8,6 +8,7 @@
     The RunAs account of your Azure Automation Account must have the Contributor role to either your WVD subscription or the Reosurce Groups containg the WVD host pool and session host virtual machines.
     It must also have at least Read permissions to the Resource Group contianing the desired KeyVault.
 .NOTES
+    Script is offered as-is with no warranty, expressed or implied.
     Author: Richard McIver
     Last Modified: 7/20/2020
 
