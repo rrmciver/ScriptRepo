@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Automate the process to enable Azure Disk Encrpytiong on WVD session hosts
+    Automate the process to enable Azure Disk Encrpytiong on WVD session hosts. Intended for the WVD Spring 2020 update (ARM).
 
 .DESCRIPTION
     This script is inteded to be used to automate the process of enabling Azure Disk Encryption (ADE) on all unencrypted session hosts in a WVD host pool without impacting users. It is designed to be run as an Auotmation Account runbook.
